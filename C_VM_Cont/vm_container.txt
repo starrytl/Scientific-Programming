@@ -1,0 +1,85 @@
+M, JUNGHYUN 김정현
+VM vs Container
+VMs and containers are technologies that enable efficient use of system resources and allow multiple applications to run in isolated environments. In early computer systems, it was only possible to run one application at a time, leading to significant waste of resources such as CPU, memory, and disk. As computer technology evolved, multitasking improved resource utilization, but the need for isolated environments grew to prevent conflicts between applications and enhance security. When multiple applications share the same system resources, a failure or security breach in one application can affect others. To address this, virtual machines were developed, allowing applications to run in isolated environments. However, there was a drawback in that VMs used a lot of resources. To overcome this limitation, lighter-weight container technology was introduced, designed to provide application isolation while sharing the same operating system.
+
+Virtualization technology plays a crucial role in modern IT infrastructure. Some of the most well-known virtual machines (VMs) include VMware vSphere, Microsoft Hyper-V, Oracle VirtualBox, and Xen. These VMs are essential components in server virtualization and cloud computing, allowing multiple operating systems to run simultaneously on virtualized hardware, thereby maximizing efficiency in various enterprise environments.
+Meanwhile, container technology, which has gained significant popularity recently, greatly enhances the portability and scalability of applications. Docker is the most widely used container platform, enabling easy deployment of containerized applications. Kubernetes serves as a container orchestration tool that effectively manages and deploys thousands of containerized applications. Additionally, LXC (Linux Containers) and Podman are container tools that provide system-level isolation in Linux environments and offer enhanced security and flexibility through a daemonless architecture, respectively.
+In this way, both virtual machines and container technologies have their own strengths within IT environments, and they are used selectively based on specific needs.
+
+
+Examples of VMs:
+VMware vSphere: An enterprise virtualization solution that supports server virtualization and cloud computing.
+Microsoft Hyper-V: A virtualization platform included in Windows Server that supports various operating systems.
+Oracle VirtualBox: An open-source virtualization software popular among individual users and developers.
+Xen: An open-source hypervisor widely used by cloud service providers.
+Examples of containers:
+Docker: The most widely used container platform that containerizes applications to provide portability and scalability.
+Kubernetes: A container orchestration tool that manages and deploys large-scale containerized applications.
+LXC (Linux Containers): A system-level container tool that leverages Linux kernel features to provide isolated containers.
+Podman: Similar to Docker, but uses a daemonless architecture to enhance security and flexibility for container management.
+
+While both VMs and containers offer isolation and efficient resource utilization, they differ fundamentally in their architecture and use cases. VMs virtualize physical hardware to run multiple operating systems on a single machine. Each VM includes a full copy of an operating system, the application, and necessary binaries and libraries, which can consume substantial system resources. This level of isolation is ideal for running applications that require different operating systems or for environments where complete isolation is necessary for security reasons.
+Containers, on the other hand, virtualize at the operating system level, allowing multiple applications to run in isolated user spaces while sharing the same OS kernel. This makes containers lightweight and faster to start, as they don't need to boot an entire operating system. Containers are well-suited for developing and deploying microservices, where applications are broken down into smaller, manageable pieces that can be developed, deployed, and scaled independently.
+
+Industries are adopting VMs and Containers to optimize their IT environments. Cloud service providers use virtualization to offer scalable Infrastructure-as-a-Service (IaaS), while software development teams leverage containers for Continuous Integration and Continuous Deployment (CI/CD) pipelines.
+Looking forward, technologies like serverless computing and advanced container orchestration platforms are shaping the future of application deployment and management. The rise of edge computing and the Internet of Things (IoT) is influencing how virtualization and containerization technologies evolve to meet new performance, scalability, and security requirements.
+
+Both virtual machines and containers have unique strengths and are essential tools in modern IT environments. Virtual machines are ideal for situations requiring complete isolation or when running applications that need different operating systems. Containers, on the other hand, are perfect for lightweight, rapid deployment scenarios. By understanding the differences and use cases of each technology, we can choose the most appropriate solution to meet our specific needs.
+
+
+*
+Kernel: The kernel is the core component of an operating system that manages system resources and facilitates communication between hardware and software.
+Binaries and Libraries: Binaries are executable program files, and libraries are collections of precompiled routines that programs can use. Both are essential for running applications.
+Infrastructure-as-a-Service (IaaS): IaaS is a cloud computing service model that provides virtualized computing resources over the internet, allowing users to rent infrastructure like servers and storage instead of owning them.
+Continuous Integration and Continuous Deployment (CI/CD): CI/CD are software development practices where code changes are automatically integrated, tested, and deployed, enabling rapid and reliable software updates.
+Container Orchestration Platforms: These platforms automate the deployment, management, scaling, and networking of containers. Kubernetes is a prominent example of such a platform.
+
+*References
+1) Microsoft, “컨테이너와 가상 머신 비교,” Microsoft Learn, 31-Mar-2023. [Online]. Available: https://learn.microsoft.com/ko-kr/virtualization/windowscontainers/about/containers-vs-vm. [Accessed: 22-Sep-2024].
+2) Amazon Web Services, “컨테이너와 가상 머신의 차이점,” AWS, [Online]. Available: https://aws.amazon.com/ko/compare/the-difference-between-containers-and-virtual-machines/. [Accessed: 22-Sep-2024].
+3) Gabia, “서버 가상화 기술의 진화: VM과 컨테이너,” Gabia Library, 01-Dec-2021. [Online]. Available: https://library.gabia.com/contents/infrahosting/7426/. [Accessed: 22-Sep-2024].
+4) Microsoft, “Azure Pipelines baseline architecture,” Microsoft Learn, 21-Feb-2024. [Online]. Available: https://learn.microsoft.com/en-us/azure/devops/pipelines/architectures/devops-pipelines-iaas-vms-architecture?view=azure-devops. [Accessed: 22-Sep-2024].
+5) Red Hat, “컨테이너와 가상 머신 비교,” Red Hat, 13-Dec-2023. [Online]. Available: https://www.redhat.com/ko/topics/containers/containers-vs-vms. [Accessed: 22-Sep-20
+
+
+Additional.
+Virtual Machine
+ 
+Unlike containers, VMs run a complete operating system, including their own kernel, as shown in this diagram.
+Since it runs a complete operating system, including the kernel, it requires more system resources (CPU, memory, and storage).
+
+Container
+ 
+It runs only the user-mode portion of the operating system and can be adjusted to include only the services needed by the app, reducing system resource usage.
+
+Feature	Virtual Machines	Containers
+Operating System	Has its own kernel	Shares host OS kernel
+Portability	Less portable	Highly portable
+Speed	Slow startup and shutdown	Fast startup and shutdown
+Resource Usage	Uses more resources	Uses fewer resources
+Use Cases	Suitable for isolated applications	Suitable for portable and scalable applications
+
+Summary:
+Containers and virtual machines (VMs) are both technologies used to run software applications but differ significantly in their architecture and use cases.
+•	Virtual Machines:
+o	Provide an abstracted version of the entire hardware of a physical machine.
+o	Each VM runs its own operating system and uses a hypervisor to access hardware resources.
+o	More resource-intensive but offer higher levels of isolation, which is crucial for security and compliance.
+o	Common use cases include testing in secure environments, development across different operating systems, application isolation, cloud computing, and disaster recovery.
+•	Containers:
+o	Are lightweight, portable executable images containing applications and their dependencies.
+o	Share the host operating system's kernel, allowing for faster startup and shutdown with fewer resources.
+o	Less isolated than VMs but highly portable and efficient.
+o	Ideal for applications that need rapid deployment and scalability, such as web development, microservices architecture, cloud computing, and CI/CD pipelines.
+Key Differences:
+•	Operating System: Containers share the host OS kernel; VMs have their own OS.
+•	Resource Usage: Containers use fewer resources; VMs are more resource-intensive.
+•	Portability and Speed: Containers are highly portable with fast startup times; VMs are less portable with slower startup times.
+•	Isolation: VMs offer greater isolation compared to containers.
+
+
+
+*Additional References
+6. "컨테이너와 가상 머신 비교," Microsoft Learn, 31-Mar-2023. [Online]. Available: https://learn.microsoft.com/ko-kr/virtualization/windowscontainers/about/containers-vs-vm. [Accessed: 24-Sep-2024].
+7. "컨테이너와 가상 머신 비교," Google Cloud, 25-Sep-2024. [Online]. Available: https://cloud.google.com/discover/containers-vs-vms. [Accessed: 24-Sep-2024].
+
